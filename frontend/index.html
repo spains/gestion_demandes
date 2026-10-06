@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Demandes d'Actes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>📋 Gestion des Demandes d'Actes Administratifs</h1>
+        <p class="subtitle">Dépôt • Traitement • Validation</p>
+    </header>
+
+    <main>
+
+        <!-- ============================================ -->
+        <!-- FORMULAIRE DE DÉPÔT                          -->
+        <!-- ============================================ -->
+        <section class="card">
+            <h2>➕ Déposer une nouvelle demande</h2>
+            <form id="form-demande">
+
+                <div class="form-group">
+                    <label for="npi">NPI de l'usager * <small>(10 chiffres)</small></label>
+                    <input type="text" id="npi" pattern="\d{10}" maxlength="10"
+                           placeholder="Ex : 1234567890" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="typeActe">Type d'acte *</label>
+                    <select id="typeActe" required>
+                        <option value="">-- Choisir un type d'acte --</option>
+                        <option value="ACTE_NAISSANCE">Acte de naissance</option>
+                        <option value="CASIER_JUDICIAIRE">Casier judiciaire</option>
+                        <option value="CERTIFICAT_RESIDENCE">Certificat de résidence</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="nombreCopies">Nombre de copies * <small>(1 à 5)</small></label>
+                    <input type="number" id="nombreCopies" min="1" max="5" value="1" required>
+                </div>
+
+                <button type="submit" class="btn-primary">📩 Déposer la demande</button>
+            </form>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- STATISTIQUES PAR STATUT                      -->
+        <!-- ============================================ -->
+        <section class="card">
+            <h2>📊 Statistiques</h2>
+            <div id="stats" class="stats-grid">
+                <div class="stat-box stat-DEPOSEE">
+                    <span class="stat-label">Déposées</span>
+                    <span class="stat-value" id="stat-DEPOSEE">0</span>
+                </div>
+                <div class="stat-box stat-EN_COURS_TRAITEMENT">
+                    <span class="stat-label">En cours</span>
+                    <span class="stat-value" id="stat-EN_COURS_TRAITEMENT">0</span>
+                </div>
+                <div class="stat-box stat-VALIDEE">
+                    <span class="stat-label">Validées</span>
+                    <span class="stat-value" id="stat-VALIDEE">0</span>
+                </div>
+                <div class="stat-box stat-REJETEE">
+                    <span class="stat-label">Rejetées</span>
+                    <span class="stat-value" id="stat-REJETEE">0</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================ -->
+        <!-- CONSULTATION PAR USAGER                      -->
+        <!-- ============================================ -->
+        <section class="card">
+            <h2>🔎 Consulter les demandes d'un usager</h2>
+
+            <div class="filters">
+                <input type="text" id="rechercheNpi"
+                       placeholder="Entrer le NPI (10 chiffres)"
+                       pattern="\d{10}" maxlength="10">
+                <select id="filtreStatut">
+                    <option value="">Tous les statuts</option>
+                    <option value="DEPOSEE">Déposée</option>
+                    <option value="EN_COURS_TRAITEMENT">En cours de traitement</option>
+                    <option value="VALIDEE">Validée</option>
+                    <option value="REJETEE">Rejetée</option>
+                </select>
+                <button id="btn-rechercher" class="btn-primary">Rechercher</button>
+                <button id="btn-tout" class="btn-secondary">Tout afficher</button>
+            </div>
+
+            <div id="message" class="message"></div>
+
+            <table id="table-demandes">
+                <thead>
+                    <tr>
+                        <th>Référence</th>
+                        <th>NPI</th>
+                        <th>Type d'acte</th>
+                        <th>Copies</th>
+                        <th>Statut</th>
+                        <th>Date</th>
+                        <th>Motif rejet</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-demandes">
+                    <!-- Rempli dynamiquement par app.js -->
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

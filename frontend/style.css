@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body {
+    background: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+header h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    color: #1e3c72;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #eef;
+    padding-bottom: 10px;
+}
+
+/* Formulaire */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: border 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2a5298;
+    box-shadow: 0 0 0 3px rgba(42, 82, 152, 0.1);
+}
+
+/* Boutons */
+.btn-primary, .btn-secondary {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: #2a5298;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1e3c72;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #e9ecef;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background: #dee2e6;
+}
+
+/* Filtres */
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+    padding: 9px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    flex: 1;
+    min-width: 180px;
+}
+
+/* Tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+thead {
+    background: #f8f9fa;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+}
+
+th {
+    font-weight: 600;
+    color: #555;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+tbody tr:hover {
+    background: #f8f9fa;
+}
+
+/* Badges de statut */
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-NOUVELLE   { background: #cfe2ff; color: #084298; }
+.badge-EN_COURS   { background: #fff3cd; color: #664d03; }
+.badge-TERMINEE   { background: #d1e7dd; color: #0f5132; }
+.badge-REJETEE    { background: #f8d7da; color: #842029; }
+
+/* Actions */
+.actions {
+    display: flex;
+    gap: 5px;
+}
+
+.actions select {
+    padding: 4px 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 0.8rem;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.btn-delete:hover {
+    background: #b02a37;
+}
+
+/* Messages */
+.message {
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    display: none;
+}
+
+.message.success {
+    background: #d1e7dd;
+    color: #0f5132;
+    display: block;
+}
+
+.message.error {
+    background: #f8d7da;
+    color: #842029;
+    display: block;
+}
+
+/* État vide */
+.empty {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-style: italic;
+}
+
+/* Sous-titre header */
+.subtitle {
+    font-size: 0.95rem;
+    font-weight: 300;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+/* Grille statistiques */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.stat-box {
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border-left: 4px solid #ccc;
+    background: #f8f9fa;
+}
+
+.stat-box .stat-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.stat-box .stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.stat-DEPOSEE          { border-left-color: #0d6efd; }
+.stat-DEPOSEE .stat-value          { color: #0d6efd; }
+
+.stat-EN_COURS_TRAITEMENT          { border-left-color: #ffc107; }
+.stat-EN_COURS_TRAITEMENT .stat-value { color: #cc9a06; }
+
+.stat-VALIDEE          { border-left-color: #198754; }
+.stat-VALIDEE .stat-value          { color: #198754; }
+
+.stat-REJETEE          { border-left-color: #dc3545; }
+.stat-REJETEE .stat-value          { color: #dc3545; }
+
+/* Badges adaptés aux nouveaux statuts */
+.badge-DEPOSEE           { background: #cfe2ff; color: #084298; }
+.badge-EN_COURS_TRAITEMENT { background: #fff3cd; color: #664d03; }
+.badge-VALIDEE           { background: #d1e7dd; color: #0f5132; }
+.badge-REJETEE           { background: #f8d7da; color: #842029; }
+
+/* Motif rejet */
+.motif-rejet {
+    font-size: 0.8rem;
+    color: #842029;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* Boutons d'action compacts */
+.btn-small {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}
+
+.btn-success {
+    background: #198754;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+.btn-success:hover {
+    background: #146c43;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+.btn-danger:hover {
+    background: #b02a37;
+}
